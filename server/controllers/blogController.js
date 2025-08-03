@@ -10,7 +10,6 @@ export const addBlog = async (req, res) => {
       req.body.blog
     );
     const imageFile = req.file;
-    console.log(imageFile);
 
     // check if all file are present or not
     if (!title || !description || !category || !imageFile) {
@@ -18,7 +17,6 @@ export const addBlog = async (req, res) => {
     }
 
     const fileBuffer = fs.readFileSync(imageFile.path);
-    console.log(fileBuffer);
 
     // upload file to imagekit
     const response = await imagekit.upload({
